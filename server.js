@@ -5,13 +5,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-
+const PORT = process.env.PORT || 3000
 // connect to mongoose
 mongoose
 	.connect(process.env.MONGO_URI)
 	.then((res) => {
 		// listen for requests
-		app.listen(process.env.PORT, () => {
+		app.listen(PORT, () => {
 			console.log(`connected to db and listening on port ${process.env.PORT}`);
 		});
 	})
