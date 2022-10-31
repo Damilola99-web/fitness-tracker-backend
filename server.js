@@ -2,6 +2,7 @@ const express = require('express');
 const workoutRoutes = require('./routes/workoutRoutes');
 const userRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose');
+const cors = require('cors')
 require('dotenv').config();
 
 const app = express();
@@ -20,6 +21,7 @@ mongoose
 	});
 
 app.use(express.json());
+app.use(cors())
 
 app.use((req, res, next) => {
 	console.log(req.ip, req.path, req.method);
